@@ -1,0 +1,66 @@
+<body style="background-color: black;">
+
+    <audio id="backgroundAudio" autoplay>
+        <source src="mewmew.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <video width="640" height="360" id="myPlayer" controls>
+        Your browser does not support the video element.
+    </video>
+
+    <br>
+
+    <button onclick="loadRandomClip()">Generate a cosplay</button>
+
+    <script defer>
+
+        const audio = document.getElementById("backgroundAudio");
+
+        // Set volume to 05%
+        audio.volume = 0.05; 
+
+        //Saved twtich clips
+        const clipsPlaylist = [
+            "mina.mp4",
+            "makima.mp4",
+            "2b.mp4",
+            "cammy.mp4",
+            "tifa.mp4",
+        ];
+        
+        const player = document.getElementById("myPlayer");
+
+        function loadRandomClip() {
+            // Pick a random clip from the array
+            const randomIndex = Math.floor(Math.random() * clipsPlaylist.length);
+            const selectedClip = clipsPlaylist[randomIndex];
+            player.src = selectedClip;
+            player.play();
+        }
+
+    </script>
+
+
+
+  <style>
+    .numberText{
+        color: white;
+    }
+  </style>
+  <p class="numberText">Your lucky number is: <span id="output"></span></p>
+  <script>
+        // Generate random number between 1 and 100 on page load
+        window.onload = function() {
+            const min = 1;
+            const max = 1000;
+            const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            
+            document.getElementById('output').textContent = randomNum;
+        };
+  </script>
+
+</body>
+
+
+
